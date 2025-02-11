@@ -31,7 +31,7 @@ variable "availability_zones" {
 variable "repo_name" {
   description = "ECR repository name"
   type        = string
-  deafult = "my-app-repo"
+  default = "my-app-repo"
 }
 
 
