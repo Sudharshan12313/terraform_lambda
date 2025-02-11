@@ -10,8 +10,9 @@ module "iam" {
   source = "../../Modules/IAM"
 }
 
-module "iam" {
+module "ecr" {
   source = "../../Modules/ECR"
+  repo_name = var.repo_name
 }
 
 module "lambda" {
