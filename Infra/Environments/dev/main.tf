@@ -7,11 +7,15 @@ module "vpc" {
 }
 
 module "iam" {
-  source = "../../modules/iam"
+  source = "../../Modules/IAM"
+}
+
+module "iam" {
+  source = "../../Modules/ECR"
 }
 
 module "lambda" {
-  source         = "../../modules/lambda"
+  source         = "../../Modules/Lambda"
   lambda_services = var.lambda_services
   lambda_role_arn = module.iam.lambda_role_arn
   private_subnet_ids = module.vpc.private_subnets
@@ -19,6 +23,6 @@ module "lambda" {
 }
 
 module "cloudwatch" {
-  source          = "../../modules/cloudwatch"
+  source          = "../../Modules/CloudWatch"
   lambda_services = var.lambda_services
 }
